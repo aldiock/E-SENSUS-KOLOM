@@ -1,0 +1,41 @@
+.login {
+  display: flex;
+  justify-content: center;
+  margin-top: 324px;
+  flex-direction: row;
+
+  .card {
+    height: 321px;
+    width: 452px;
+    background-color: #ebebeb;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .logo-gmim {
+      width: 71px;
+      height: 71px;
+      padding-left: 31px;
+      padding-top: 41px;
+    }
+
+    .text-login-header {
+      font-size: 24px;
+      letter-spacing: 6px;
+      line-height: 1px;
+    }
+
+    .text-login-inner {
+      font-size: 15px;
+      letter-spacing: 5.3px;
+      line-height: 1px;
+    }
+
+    .form-login{
+        padding-left: 31px;
+        width: 400px;
+        padding-bottom: 10px;
+    }
+  }
+}
