@@ -1,8 +1,8 @@
 .login {
   display: flex;
   justify-content: center;
-  margin-top: 324px;
-  flex-direction: row;
+  align-items: center;
+  height: 100vh;
 
   .card {
     height: 321px;
@@ -12,12 +12,13 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    padding: 8px;
 
     .logo-gmim {
-      width: 71px;
-      height: 71px;
       padding-left: 31px;
-      padding-top: 41px;
+      padding-top: 10px;
+      width: fit-content;
+      height: fit-content;
     }
 
     .text-login-header {
@@ -28,14 +29,14 @@
 
     .text-login-inner {
       font-size: 15px;
-      letter-spacing: 5.3px;
-      line-height: 1px;
+      letter-spacing: 4.5px;
+      line-height: 10px;
     }
 
-    .form-login{
-        padding-left: 31px;
-        width: 400px;
-        padding-bottom: 10px;
+    .form-login {
+      padding-left: 31px;
+      width:94%;
+      padding-bottom: 10px;
     }
   }
 }

@@ -8,15 +8,14 @@ const Login = () => {
     <div className="login">
       <div className="card">
         <img src={LogoGMIM} alt="logogmim" className="logo-gmim" />
-        <Gap width={20} />
+        <Gap width={5} />
         <div className="title-wrap">
           <Gap height={30} />
           <p className="text-login-header">E-SENSUS KOLOM 2</p>
-          <hr />
-          <p className="text-login-inner">GMIM GENESARET PATETEN</p>
+          <p className="text-login-inner">GMIM "GENESARET" PATETEN</p>
         </div>
         <div className="form-login">
-          <InputText placeholder="Masukkan email anda" />
+          <InputText placeholder="Masukkan username anda" />
           <Gap height={15}/>
           <InputText placeholder="Masukkan password anda" />
           <Gap height={24}/>

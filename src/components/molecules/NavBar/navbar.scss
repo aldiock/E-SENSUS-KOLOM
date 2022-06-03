@@ -1,0 +1,87 @@
+.navbar-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #ebebeb;
+  height: 60px;
+  padding: 15px;
+  position: relative;
+
+  .logo-gmim {
+    width: 48px;
+    height: 48px;
+  }
+
+  .title-wrap {
+    padding-left: 13px;
+    padding-top: 4px;
+
+    .text-login-inner {
+      font-size: 15px;
+      letter-spacing: 4.5px;
+      line-height: 10px;
+    }
+
+    .text-login-header {
+      font-size: 24px;
+      letter-spacing: 6px;
+      line-height: 1px;
+    }
+  }
+
+  .dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .dash-logo {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .data-jemaat {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .data-jemaat-logo {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .admin {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .admin-logo {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .data-kk {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .dash-kk-logo {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .logout {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .logout-logo {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
