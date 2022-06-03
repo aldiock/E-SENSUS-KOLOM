@@ -16,9 +16,9 @@ const Login = () => {
         </div>
         <div className="form-login">
           <InputText placeholder="Masukkan username anda" />
-          <Gap height={15}/>
+          <Gap height={15} />
           <InputText placeholder="Masukkan password anda" />
-          <Gap height={24}/>
+          <Gap height={24} />
           <Button title="Login" />
         </div>
       </div>

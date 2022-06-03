@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavBar } from "../../components";
+import { NavBar } from "../../components";
 
 const SignUp = () => {
   return (
