@@ -8,6 +8,7 @@ import {
   DataKKJemaat,
   Dashboard,
   AddUser,
+  LihatData,
 } from "../../pages";
 
 const Routes = () => {
@@ -30,7 +31,7 @@ const Routes = () => {
           <AddUser />
         </Route>
         <Route path="/admin">
-          <Admin />
+          <LihatData />
         </Route>
         <Route path="/">
           <Login />

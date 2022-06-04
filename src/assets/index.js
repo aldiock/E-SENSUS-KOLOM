@@ -5,6 +5,8 @@ import DataJemaat from "./datajemaatlogo.png";
 import Admin from "./adminlogo.png";
 import Logout from "./logoutlogo.png";
 import AddUserIco from "./addUserIco.png";
+import Delete from "./delete.png";
+import Edit from "./edit.png";
 
 export {
   LogoGMIM,
@@ -14,4 +16,6 @@ export {
   Admin,
   Logout,
   AddUserIco,
+  Delete,
+  Edit,
 };

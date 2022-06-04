@@ -1,13 +1,31 @@
-import React from "react";
-import { NavBar } from "../../components";
+import React, { useContext, useEffect, useState } from "react";
+import { NavBar, NavBarPelsus } from "../../components";
+import backEndDataContext from "../../contexts/backEndDataContext";
 
 const DataJemaat = () => {
+  const backEndData = useContext(backEndDataContext);
+  const [navbarValid, setNavbarValid] = useState(true);
+
+  useEffect(() => {
+    if (backEndData.getUserDetails().status === "Admin") {
+      setNavbarValid(false);
+    } else {
+      setNavbarValid(true);
+    }
+  }, []);
+
   return (
     <>
-      <div>
-        <NavBar />
-      </div>
-      <div>Data Jemaat Pages</div>
+      {navbarValid === false ? (
+        <div>
+          <NavBar />
+        </div>
+      ) : (
+        <div>
+          <NavBarPelsus />
+        </div>
+      )}
+      <div>{backEndData.getUserDetails().status}</div>
     </>
   );
 };

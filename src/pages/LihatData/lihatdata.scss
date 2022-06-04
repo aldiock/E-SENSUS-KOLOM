@@ -1,0 +1,44 @@
+.title {
+  font-size: 40px;
+}
+
+.card-selector {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.button-action {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .edit-logo {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .logo-edit {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .delete-logo {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .logo-delete {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.action-style {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}

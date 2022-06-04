@@ -2,10 +2,10 @@ import React,{useContext} from "react";
 import { useHistory } from "react-router-dom";
 import { Admin, Dashboard, DataJemaat, Logout } from "../../../assets";
 import { Gap, Link } from "../../atoms";
-import "./navbar.scss";
+import "./navbarpelsus.scss";
 import backEndDataContext from "../../../contexts/backEndDataContext";
 
-const NavBar = () => {
+const NavBarPelsus = () => {
   const backEndData = useContext(backEndDataContext)
   const history = useHistory();
 
@@ -29,10 +29,6 @@ const NavBar = () => {
           onClick={() => history.push("/data-jemaat")}
         />
       </div>
-      <div className="admin">
-        <img src={Admin} alt="admin" className="admin-logo" />
-        <Link title="Admin" onClick={() => history.push("/admin")} />
-      </div>
       <div className="data-kk">
         <img src={DataJemaat} alt="data-kk" className="dash-kk-logo" />
         <Link
@@ -48,4 +44,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavBarPelsus;

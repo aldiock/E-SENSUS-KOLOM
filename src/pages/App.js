@@ -8,10 +8,10 @@ const App = () => {
 
   //users login data
   const setUserDetail = (data) => {
-    setBackEndData((prevstate) => ({ ...prevstate, userData: data }));
+    setBackEndData((prevState) => ({ ...prevState, userData: data }));
   };
 
-  const getUsersDetails = () => {
+  const getUserDetails = () => {
     return backEndData.userData;
   };
 
@@ -21,7 +21,7 @@ const App = () => {
         value={{
           data: backEndData,
           setUserDetail: setUserDetail,
-          getUsersDetails: getUsersDetails,
+          getUserDetails: getUserDetails,
         }}
       >
         <Routes />
