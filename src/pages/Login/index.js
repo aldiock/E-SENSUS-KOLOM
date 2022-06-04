@@ -1,25 +1,41 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
 import { LogoGMIM } from "../../assets";
 import { Button, Gap, InputText } from "../../components";
 import "./login.scss";
 import firebase from "../../config/firebase";
+import backEndDataContext from "../../contexts/backEndDataContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+  const backEndData = useContext(backEndDataContext);
 
   const handleSubmit = () => {
-    const data = {
-      email: email,
-      password: password,
-    };
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then((res) => history.push("/"))
-      .catch((err) => console.log(err));
+      .then((userCredential) => {
+        firebase
+          .database()
+          .ref("users")
+          .child(userCredential.user.uid)
+          .get()
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              //get data
+              const data = snapshot.val();
+              const dataBaru = { ...data };
+              console.log("DATA LOGIN", data);
+              backEndData.setUserDetail({
+                ...dataBaru,
+                uid: userCredential.user.uid,
+              });
+              history.push("/dashboard");
+            }
+          });
+      });
   };
   return (
     <div className="login">

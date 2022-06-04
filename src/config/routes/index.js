@@ -14,8 +14,8 @@ const Routes = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/login">
-          <Login />
+        <Route path="/dashboard">
+          <Dashboard />
         </Route>
         <Route path="/signup">
           <SignUp />
@@ -27,13 +27,13 @@ const Routes = () => {
           <DataKKJemaat />
         </Route>
         <Route path="/add-users">
-          <AddUser/>
+          <AddUser />
         </Route>
         <Route path="/admin">
           <Admin />
         </Route>
         <Route path="/">
-          <Dashboard />
+          <Login />
         </Route>
       </Switch>
     </Router>
