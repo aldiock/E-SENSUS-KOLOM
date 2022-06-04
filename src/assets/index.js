@@ -4,5 +4,14 @@ import Dashboard from "./Dashboard.png";
 import DataJemaat from "./datajemaatlogo.png";
 import Admin from "./adminlogo.png";
 import Logout from "./logoutlogo.png";
+import AddUserIco from "./addUserIco.png";
 
-export { LogoGMIM, LogoGMIMHD, Dashboard, DataJemaat, Admin, Logout };
+export {
+  LogoGMIM,
+  LogoGMIMHD,
+  Dashboard,
+  DataJemaat,
+  Admin,
+  Logout,
+  AddUserIco,
+};

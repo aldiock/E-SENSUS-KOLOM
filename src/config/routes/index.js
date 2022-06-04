@@ -7,6 +7,7 @@ import {
   DataJemaat,
   DataKKJemaat,
   Dashboard,
+  AddUser,
 } from "../../pages";
 
 const Routes = () => {
@@ -24,6 +25,9 @@ const Routes = () => {
         </Route>
         <Route path="/data-kk-jemaat">
           <DataKKJemaat />
+        </Route>
+        <Route path="/add-users">
+          <AddUser/>
         </Route>
         <Route path="/admin">
           <Admin />

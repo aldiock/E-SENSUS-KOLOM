@@ -1,5 +1,6 @@
 import React from "react";
-import { NavBar } from "../../components";
+import { CardSelectorAdmin, NavBar, Gap } from "../../components";
+import "./admin.scss";
 
 const Admin = () => {
   return (
@@ -7,7 +8,15 @@ const Admin = () => {
       <div>
         <NavBar />
       </div>
-      <div>Admin Pages</div>
+      <Gap height={28}/>
+      <div className="card-selector">
+        <p className="title">Data User</p>
+        <hr />
+        <div>
+          <CardSelectorAdmin />
+        </div>
+        <div>Admin Pages</div>
+      </div>
     </>
   );
 };

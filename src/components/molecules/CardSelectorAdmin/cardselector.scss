@@ -1,0 +1,45 @@
+.wrapper-out {
+
+  .navbar-wrap-admin {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 10px;
+    border: 2px solid;
+    border-color: #2083aa;
+    height: 105px;
+    max-width:max-content;
+    position: relative;
+    justify-content: center;
+
+    .tambah-user {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      width: 162px;
+      height: 38px;
+      padding-left: 34px;
+      padding-top: 25px;
+    }
+
+    .lihat-data {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      width: 162px;
+      height: 38px;
+      padding-left: 34px;
+      padding-top: 25px;
+    }
+
+    .refresh {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      width: 162px;
+      height: 38px;
+      padding-left: 34px;
+      padding-top: 25px;
+    }
+  }
+}
