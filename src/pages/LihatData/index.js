@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router";
 import { CardSelectorAdmin, Gap, Link, NavBar } from "../../components";
 import "./lihatdata.scss";
 import firebase from "../../config/firebase";
@@ -6,6 +7,7 @@ import { Delete, Edit } from "../../assets";
 
 const LihatData = () => {
   const [dataUsers, setDataUsers] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     firebase
@@ -26,6 +28,10 @@ const LihatData = () => {
         }
       });
   }, []);
+
+  const deleteUser = (item) => {
+    firebase.database().ref(`users/${item.id}`).remove();
+  };
 
   return (
     <>
@@ -58,14 +64,13 @@ const LihatData = () => {
                 <td>{item.status}</td>
                 <td>
                   <div className="button-action">
-                    <div className="edit-logo">
-                      <img src={Edit} alt="edit" className="logo-edit" />
-                      <Link title="Edit" />
-                    </div>
                     <Gap width={10} />
                     <div className="delete-logo">
                       <img src={Delete} alt="delete" className="logo-delete" />
-                      <Link title="Hapus" />
+                      <Link
+                        title="Hapus User"
+                        onClick={() => deleteUser(item)}
+                      />
                     </div>
                   </div>
                 </td>

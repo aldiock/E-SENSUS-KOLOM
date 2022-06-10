@@ -1,0 +1,20 @@
+.wrapper-dashboard {
+  display: flex;
+  flex-direction: row;
+  padding: 24px;
+
+  .logo-dash{
+    width: 600px;
+    height: 600px;
+    opacity: 5%;
+  }
+}
+
+.dashboard-section{
+  padding-left: 24px;
+  padding-right: 24px;
+
+  .title-dash{
+    font-size: 40px;
+  }
+}

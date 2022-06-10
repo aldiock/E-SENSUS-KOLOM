@@ -6,5 +6,6 @@ import DataKKJemaat from "./DataKKJemaat";
 import Dashboard from "./Dashboard";
 import AddUser from "./AddUser";
 import LihatData from "./LihatData";
+import UpdateUser from "./UpdateUser";
 
-export { Login, SignUp, Admin, DataJemaat, DataKKJemaat, Dashboard, AddUser,LihatData };
+export { Login, SignUp, Admin, DataJemaat, DataKKJemaat, Dashboard, AddUser,LihatData,UpdateUser };

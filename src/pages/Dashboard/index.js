@@ -1,6 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import { NavBar, NavBarPelsus } from "../../components";
+import { LogoGMIMHD } from "../../assets";
+import {
+  CardInfoJemaat,
+  CardInfoKKJemaat,
+  Gap,
+  NavBar,
+  NavBarPelsus,
+} from "../../components";
 import backEndDataContext from "../../contexts/backEndDataContext";
+import "./dashboard.scss";
 
 const Dashboard = () => {
   const backEndData = useContext(backEndDataContext);
@@ -25,7 +33,17 @@ const Dashboard = () => {
           <NavBarPelsus />
         </div>
       )}
-      <div>{backEndData.getUserDetails().status}</div>
+      <div className="dashboard-section">
+        <p className="title-dash">Dashboard</p>
+        <hr/>
+      </div>
+      <div className="wrapper-dashboard">
+        <CardInfoJemaat />
+        <Gap width={45} />
+        <CardInfoKKJemaat />
+        <Gap width={150}/>
+        <img className="logo-dash" src={LogoGMIMHD} alt="logo-gmim"/>
+      </div>
     </>
   );
 };

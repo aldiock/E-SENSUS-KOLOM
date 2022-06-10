@@ -1,0 +1,28 @@
+.wrapper-out {
+
+    .navbar-wrap-info-jemaat {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      border-radius: 10px;
+      border: 2px solid;
+      border-color: #2083aa;
+      height: 510px;
+      width: 482px;
+      padding-left: 10px;
+
+      .header-data-jemaat{
+          font-size: 32px;
+      }
+
+      .data-jemaat-box{
+        padding-bottom: 140px;
+      }
+
+      .line{
+          padding-right: 10px;
+      }
+
+    }
+  }
+  
