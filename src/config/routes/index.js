@@ -11,6 +11,7 @@ import {
   LihatData,
   UpdateUser,
   AddDataJemaat,
+  AddDataKKJemaat,
 } from "../../pages";
 
 const Routes = () => {
@@ -40,6 +41,9 @@ const Routes = () => {
         </Route>
         <Route path="/add-data-jemaat">
           <AddDataJemaat />
+        </Route>
+        <Route path="/add-data-kk-jemaat">
+          <AddDataKKJemaat />
         </Route>
         <Route path="/">
           <Login />

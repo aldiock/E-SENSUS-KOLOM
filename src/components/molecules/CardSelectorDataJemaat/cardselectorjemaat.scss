@@ -6,10 +6,8 @@
     border-radius: 10px;
     border: 2px solid;
     border-color: #2083aa;
-    height: 105px;
-    max-width: max-content;
+    height: 80px;
     position: relative;
-    justify-content: center;
 
     .tambah-user-data-jemaat {
       display: flex;
@@ -18,7 +16,7 @@
       width: 162px;
       height: 38px;
       padding-left: 34px;
-      padding-top: 25px;
+      padding-top: 15px;
     }
 
     .lihat-data-jemaat {
@@ -28,7 +26,7 @@
       width: 162px;
       height: 38px;
       padding-left: 34px;
-      padding-top: 25px;
+      padding-top: 15px;
     }
 
     .refresh-data-jemaat {
@@ -38,7 +36,7 @@
       width: 162px;
       height: 38px;
       padding-left: 34px;
-      padding-top: 25px;
+      padding-top: 15px;
     }
   }
 }

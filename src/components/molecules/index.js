@@ -4,6 +4,7 @@ import NavBarPelsus from "./NavBarPelsus";
 import CardInfoJemaat from "./CardInfoJemaat";
 import CardInfoKKJemaat from "./CardInfoKKJemaat";
 import CardSelectorDataJemaat from "./CardSelectorDataJemaat/";
+import CardSelectorDataKK from "./CardSelectorDataKK";
 
 export {
   NavBar,
@@ -12,4 +13,5 @@ export {
   CardInfoJemaat,
   CardInfoKKJemaat,
   CardSelectorDataJemaat,
+  CardSelectorDataKK,
 };

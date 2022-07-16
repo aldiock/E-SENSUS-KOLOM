@@ -8,6 +8,7 @@ import AddUser from "./AddUser";
 import LihatData from "./LihatData";
 import UpdateUser from "./UpdateUser";
 import AddDataJemaat from "./AddDataJemaat";
+import AddDataKKJemaat from "./AddDataKKJemaat";
 
 export {
   Login,
@@ -20,4 +21,5 @@ export {
   LihatData,
   UpdateUser,
   AddDataJemaat,
+  AddDataKKJemaat,
 };

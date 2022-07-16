@@ -1,0 +1,43 @@
+.wrapper-out {
+    .navbar-wrap-data-jemaat {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      border-radius: 10px;
+      border: 2px solid;
+      border-color: #2083aa;
+      height: 80px;
+      position: relative;
+  
+      .tambah-user-data-jemaat {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 162px;
+        height: 38px;
+        padding-left: 34px;
+        padding-top: 15px;
+      }
+  
+      .lihat-data-jemaat {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 162px;
+        height: 38px;
+        padding-left: 34px;
+        padding-top: 15px;
+      }
+  
+      .refresh-data-jemaat {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 162px;
+        height: 38px;
+        padding-left: 34px;
+        padding-top: 15px;
+      }
+    }
+  }
+  

@@ -1,21 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
 import {
-  CardSelectorDataKK,
-  Gap,
   NavBar,
   NavBarPelsus,
+  CardSelectorDataKK,
+  Gap,
+  Button,
+  InputText,
 } from "../../components";
 import backEndDataContext from "../../contexts/backEndDataContext";
+import "./adddatakkjemaat.scss";
 
-const DataKKJemaat = () => {
+const AddDataKKJemaat = () => {
   const backEndData = useContext(backEndDataContext);
-  const [navbarValid, setNavbarValid] = useState(true);
+  const [navbarValid, setNavBarValid] = useState(true);
 
   useEffect(() => {
     if (backEndData.getUserDetails().status === "Admin") {
-      setNavbarValid(false);
+      setNavBarValid(false);
     } else {
-      setNavbarValid(true);
+      setNavBarValid(true);
     }
   }, []);
 
@@ -38,8 +41,17 @@ const DataKKJemaat = () => {
           <CardSelectorDataKK />
         </div>
       </div>
+      <Gap height={28} />
+      <div className="form-section-add-data-kk-jemaat">
+        <p className="header-title">A. Data Pribadi</p>
+        <p className="title-box-input">No. Kartu Keluarga</p>
+        <div className="input-section-data-kk-jemaat">
+          <InputText placeholder="Masukkan nomor kartu keluarga" />
+        </div>
+        <Gap height={10} />
+      </div>
     </>
   );
 };
 
-export default DataKKJemaat;
+export default AddDataKKJemaat;
