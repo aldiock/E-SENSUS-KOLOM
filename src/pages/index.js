@@ -7,5 +7,17 @@ import Dashboard from "./Dashboard";
 import AddUser from "./AddUser";
 import LihatData from "./LihatData";
 import UpdateUser from "./UpdateUser";
+import AddDataJemaat from "./AddDataJemaat";
 
-export { Login, SignUp, Admin, DataJemaat, DataKKJemaat, Dashboard, AddUser,LihatData,UpdateUser };
+export {
+  Login,
+  SignUp,
+  Admin,
+  DataJemaat,
+  DataKKJemaat,
+  Dashboard,
+  AddUser,
+  LihatData,
+  UpdateUser,
+  AddDataJemaat,
+};

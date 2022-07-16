@@ -30,7 +30,9 @@ const LihatData = () => {
   }, []);
 
   const deleteUser = (item) => {
-    firebase.database().ref(`users/${item.id}`).remove();
+    // firebase.database().ref(`users/${item.id}`).remove();
+
+    
   };
 
   return (
@@ -64,7 +66,6 @@ const LihatData = () => {
                 <td>{item.status}</td>
                 <td>
                   <div className="button-action">
-                    <Gap width={10} />
                     <div className="delete-logo">
                       <img src={Delete} alt="delete" className="logo-delete" />
                       <Link

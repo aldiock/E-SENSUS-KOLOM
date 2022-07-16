@@ -1,5 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { NavBar, NavBarPelsus } from "../../components";
+import {
+  NavBar,
+  NavBarPelsus,
+  CardSelectorDataJemaat,
+  Gap,
+} from "../../components";
 import backEndDataContext from "../../contexts/backEndDataContext";
 
 const DataJemaat = () => {
@@ -25,7 +30,14 @@ const DataJemaat = () => {
           <NavBarPelsus />
         </div>
       )}
-      <div>{backEndData.getUserDetails().status}</div>
+      <Gap height={28} />
+      <div className="card-selector">
+        <p className="title">Tambah Data Jemaat</p>
+        <hr />
+        <div>
+          <CardSelectorDataJemaat />
+        </div>
+      </div>
     </>
   );
 };

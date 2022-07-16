@@ -10,6 +10,7 @@ import {
   AddUser,
   LihatData,
   UpdateUser,
+  AddDataJemaat,
 } from "../../pages";
 
 const Routes = () => {
@@ -35,7 +36,10 @@ const Routes = () => {
           <LihatData />
         </Route>
         <Route path="/update-user">
-          <UpdateUser/>
+          <UpdateUser />
+        </Route>
+        <Route path="/add-data-jemaat">
+          <AddDataJemaat />
         </Route>
         <Route path="/">
           <Login />

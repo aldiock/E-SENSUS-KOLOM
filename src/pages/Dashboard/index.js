@@ -41,8 +41,6 @@ const Dashboard = () => {
         <CardInfoJemaat />
         <Gap width={45} />
         <CardInfoKKJemaat />
-        <Gap width={150}/>
-        <img className="logo-dash" src={LogoGMIMHD} alt="logo-gmim"/>
       </div>
     </>
   );

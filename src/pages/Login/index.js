@@ -5,6 +5,7 @@ import { Button, Gap, InputText } from "../../components";
 import "./login.scss";
 import firebase from "../../config/firebase";
 import backEndDataContext from "../../contexts/backEndDataContext";
+import { HashLoader } from "react-spinners";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +13,11 @@ const Login = () => {
   const history = useHistory();
   const backEndData = useContext(backEndDataContext);
 
+  //loading state
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = () => {
+    setLoading(true);
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -35,36 +40,44 @@ const Login = () => {
               history.push("/dashboard");
             }
           });
+        setLoading(false);
       });
   };
   return (
-    <div className="login">
-      <div className="card">
-        <img src={LogoGMIM} alt="logogmim" className="logo-gmim" />
-        <Gap width={5} />
-        <div className="title-wrap">
-          <Gap height={30} />
-          <p className="text-login-header">E-SENSUS KOLOM 2</p>
-          <p className="text-login-inner">GMIM "GENESARET" PATETEN</p>
+    <>
+      <div className="login">
+        <div className="card">
+          <img src={LogoGMIM} alt="logogmim" className="logo-gmim" />
+          <Gap width={5} />
+          <div className="title-wrap">
+            <Gap height={30} />
+            <p className="text-login-header">E-SENSUS KOLOM 2</p>
+            <p className="text-login-inner">GMIM "GENESARET" PATETEN</p>
+          </div>
+          <div className="form-login">
+            <InputText
+              placeholder="Masukkan username anda"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Gap height={15} />
+            <InputText
+              placeholder="Masukkan password anda"
+              value={password}
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Gap height={24} />
+            <Button title="Login" onClick={handleSubmit} />
+          </div>
+          <div className="loading">
+          {loading && (
+            <HashLoader color={"B1B4B3"} loading={loading} size={150} />
+          )}
         </div>
-        <div className="form-login">
-          <InputText
-            placeholder="Masukkan username anda"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Gap height={15} />
-          <InputText
-            placeholder="Masukkan password anda"
-            value={password}
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Gap height={24} />
-          <Button title="Login" onClick={handleSubmit} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
