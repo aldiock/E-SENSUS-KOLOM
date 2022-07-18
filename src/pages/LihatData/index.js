@@ -27,12 +27,11 @@ const LihatData = () => {
           setDataUsers(userArr);
         }
       });
+    console.log("INI DATA USER DI ADMIN PAGES", dataUsers);
   }, []);
 
   const deleteUser = (item) => {
     // firebase.database().ref(`users/${item.id}`).remove();
-
-    
   };
 
   return (

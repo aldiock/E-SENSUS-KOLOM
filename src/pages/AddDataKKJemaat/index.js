@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import Select from "react-select";
 import {
   NavBar,
   NavBarPelsus,
@@ -8,17 +9,88 @@ import {
   InputText,
 } from "../../components";
 import backEndDataContext from "../../contexts/backEndDataContext";
+import firebase from "../../config/firebase";
 import "./adddatakkjemaat.scss";
 
 const AddDataKKJemaat = () => {
   const backEndData = useContext(backEndDataContext);
   const [navbarValid, setNavBarValid] = useState(true);
+  const [loadDataKK, setLoadDataKK] = useState([{}]);
+  const [newLoadData, setNewLoadData] = useState([{}]);
+  const [validLoad, setValidLoad] = useState(true);
+  const [idKK, setIDKK] = useState(null);
 
+  //submit
+  const handelSubmit = () => {
+    const data = {
+      idKK,
+    };
+    console.log("INI DATA", data);
+  };
+
+  //dummy options default for drop down
+  const options = [
+    { value: "", label: "--Pilih ID Salah Satu Kepala Keluarga--" },
+  ];
+
+  //function to convert loadDataKK to new array structure
+  const convertDataKKToOptions = () => {
+    const newOptions = [];
+    loadDataKK.map((item) => {
+      newOptions.push({
+        id: item.id,
+        value: item.namaLengkap,
+        label: item.namaLengkap + " - ID KK : " + item.id,
+      });
+    });
+    setNewLoadData(newOptions);
+    return newOptions;
+  };
+
+  //function load
+  const loadData = () => {
+    firebase
+      .database()
+      .ref("users/")
+      .on("value", (res) => {
+        if (res.val()) {
+          //convert to array
+          const rawData = res.val();
+          const userKK = [];
+          Object.keys(rawData).map((item) => {
+            userKK.push({
+              id: item,
+              ...rawData[item],
+            });
+          });
+          setLoadDataKK(userKK);
+        }
+      });
+  };
+
+  const twoFunction = () => {
+    loadData();
+    convertDataKKToOptions();
+  };
+
+  //trigger and validate status users login
   useEffect(() => {
     if (backEndData.getUserDetails().status === "Admin") {
       setNavBarValid(false);
     } else {
       setNavBarValid(true);
+    }
+    loadData();
+  }, []);
+
+  //triger for load data in dropdown
+  useEffect(() => {
+    if (validLoad) {
+      setValidLoad(false);
+      twoFunction();
+    } else {
+      setValidLoad(true);
+      twoFunction();
     }
   }, []);
 
@@ -49,6 +121,19 @@ const AddDataKKJemaat = () => {
           <InputText placeholder="Masukkan nomor kartu keluarga" />
         </div>
         <Gap height={10} />
+        <p className="title-box-input">ID Kepala Keluarga</p>
+        <div className="input-section-data-kk-jemaat">
+          <Select
+            defaultValue={options}
+            options={newLoadData}
+            onChange={setIDKK}
+            onFocus={twoFunction}
+          />
+        </div>
+        <Gap height={10} />
+        <div className="input-section-button">
+          <Button title="Simpan Data" onClick={handelSubmit} />
+        </div>
       </div>
     </>
   );
