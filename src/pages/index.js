@@ -9,6 +9,7 @@ import LihatData from "./LihatData";
 import UpdateUser from "./UpdateUser";
 import AddDataJemaat from "./AddDataJemaat";
 import AddDataKKJemaat from "./AddDataKKJemaat";
+import EditAnggotaKK from "./EditAnggotaKK";
 
 export {
   Login,
@@ -22,4 +23,5 @@ export {
   UpdateUser,
   AddDataJemaat,
   AddDataKKJemaat,
+  EditAnggotaKK,
 };

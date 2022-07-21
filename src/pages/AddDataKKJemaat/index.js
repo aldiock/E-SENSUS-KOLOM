@@ -19,13 +19,18 @@ const AddDataKKJemaat = () => {
   const [newLoadData, setNewLoadData] = useState([{}]);
   const [validLoad, setValidLoad] = useState(true);
   const [idKK, setIDKK] = useState(null);
+  const [noKK, setNoKK] = useState("");
 
   //submit
-  const handelSubmit = () => {
+  const handleSubmit = () => {
     const data = {
-      idKK,
+      idKK: idKK,
+      noKK: noKK,
     };
-    console.log("INI DATA", data);
+    console.log("INI DATA", data.idKK);
+    firebase.database().ref('kkJemaat').child(idKK.id).set(data);
+    setIDKK(options);
+    setNoKK("");
   };
 
   //dummy options default for drop down
@@ -39,8 +44,8 @@ const AddDataKKJemaat = () => {
     loadDataKK.map((item) => {
       newOptions.push({
         id: item.id,
-        value: item.namaLengkap,
-        label: item.namaLengkap + " - ID KK : " + item.id,
+        value: item.namaJemaat,
+        label: item.namaJemaat + " || ID KK : " + item.id,
       });
     });
     setNewLoadData(newOptions);
@@ -51,7 +56,7 @@ const AddDataKKJemaat = () => {
   const loadData = () => {
     firebase
       .database()
-      .ref("users/")
+      .ref("jemaat/")
       .on("value", (res) => {
         if (res.val()) {
           //convert to array
@@ -118,7 +123,11 @@ const AddDataKKJemaat = () => {
         <p className="header-title">A. Data Pribadi</p>
         <p className="title-box-input">No. Kartu Keluarga</p>
         <div className="input-section-data-kk-jemaat">
-          <InputText placeholder="Masukkan nomor kartu keluarga" />
+          <InputText
+            placeholder="Masukkan nomor kartu keluarga"
+            value={noKK}
+            onChange={(e) => setNoKK(e.target.value)}
+          />
         </div>
         <Gap height={10} />
         <p className="title-box-input">ID Kepala Keluarga</p>
@@ -132,7 +141,7 @@ const AddDataKKJemaat = () => {
         </div>
         <Gap height={10} />
         <div className="input-section-button">
-          <Button title="Simpan Data" onClick={handelSubmit} />
+          <Button title="Simpan Data" onClick={handleSubmit} />
         </div>
       </div>
     </>

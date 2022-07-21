@@ -14,10 +14,6 @@
     flex-direction: row;
     padding: 8px;
 
-    .loading {
-      padding-left: 120px;
-    }
-
     .logo-gmim {
       padding-left: 31px;
       padding-top: 10px;
@@ -41,6 +37,20 @@
       padding-left: 31px;
       width: 94%;
       padding-bottom: 10px;
+      box-sizing: border-box;
+
+      .loading {
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        padding-block: 10px;
+        padding-left: 120px;
+
+        .loading-in {
+          justify-content: center;
+          align-items: center;
+        }
+      }
     }
   }
 }

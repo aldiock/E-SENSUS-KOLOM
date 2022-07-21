@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
+import { HashLoader } from "react-spinners";
 import { LogoGMIM } from "../../assets";
 import { Button, Gap, InputText } from "../../components";
-import "./login.scss";
 import firebase from "../../config/firebase";
 import backEndDataContext from "../../contexts/backEndDataContext";
-import { HashLoader } from "react-spinners";
+import "./login.scss";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -69,12 +69,12 @@ const Login = () => {
             />
             <Gap height={24} />
             <Button title="Login" onClick={handleSubmit} />
+            <div className="loading">
+              {loading && (
+                <HashLoader color={"B1B4B3"} loading={loading} size={90} />
+              )}
+            </div>
           </div>
-          <div className="loading">
-          {loading && (
-            <HashLoader color={"B1B4B3"} loading={loading} size={150} />
-          )}
-        </div>
         </div>
       </div>
     </>
