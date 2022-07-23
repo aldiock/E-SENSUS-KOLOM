@@ -13,6 +13,8 @@ const CardInfoJemaat = () => {
   const [dataBelumKawin, setDataBelumKawin] = useState("");
   const [dataCeraiMati, setDataCeraiMati] = useState("");
   const [dataCeraiHidup, setDataCeraiHidup] = useState("");
+  const [dataRemaja, setDataRemaja] = useState("");
+  const [dataPemuda, setDataPemuda] = useState("");
 
   //function to count jemaat by gender LakiLaki
   const countJKL = () => {
@@ -108,6 +110,49 @@ const CardInfoJemaat = () => {
     return count;
   };
 
+  // function to calculate how many jemaat more than 60 years old from dataJemaat.tanggalLahir
+  const countLansia = () => {
+    let count = 0;
+    dataJemaat.map((item) => {
+      let tanggalLahir = new Date(item.tanggalLahir);
+      let now = new Date();
+      let age = now.getFullYear() - tanggalLahir.getFullYear();
+      if (age > 60) {
+        count++;
+      }
+    });
+    setDataLansia(count);
+    return count;
+  };
+
+  const countRemaja = () => {
+    let count = 0;
+    dataJemaat.map((item) => {
+      let tanggalLahir = new Date(item.tanggalLahir);
+      let now = new Date();
+      let age = now.getFullYear() - tanggalLahir.getFullYear();
+      if (age < 17) {
+        count++;
+      }
+    });
+    setDataRemaja(count);
+    return count;
+  };
+
+  const countPemuda = () => {
+    let count = 0;
+    dataJemaat.map((item) => {
+      let tanggalLahir = new Date(item.tanggalLahir);
+      let now = new Date();
+      let age = now.getFullYear() - tanggalLahir.getFullYear();
+      if (age > 17) {
+        count++;
+      }
+    });
+    setDataPemuda(count);
+    return count;
+  };
+
   useEffect(() => {
     firebase
       .database()
@@ -126,6 +171,9 @@ const CardInfoJemaat = () => {
           setDataJemaat(userJemaat);
         }
       });
+    countRemaja();
+    countPemuda();
+    countLansia();
     countJKL();
     countJKP();
     countSidi();
@@ -138,6 +186,9 @@ const CardInfoJemaat = () => {
 
   //made useEffect to trigger when dataJemaat is changed
   useEffect(() => {
+    countRemaja();
+    countPemuda();
+    countLansia();
     countJKL();
     countJKP();
     countSidi();
@@ -159,11 +210,9 @@ const CardInfoJemaat = () => {
               Total ada {dataTotal} data anggota jemaat, {dataLakiLaki}{" "}
               diantaranya laki-laki dan {dataPerempuan} diantaranya perempuan.
             </p>
-            <p>
-              Anggota jemaat diatas 60 tahun berjumlah ... orang dan dibawah ..
-              tahun berjumlah .. orang.
-            </p>
-            <p>Anggota jemaat diatas .. tahun berjumlah ... orang.</p>
+            <p>Anggota jemaat diatas 60 tahun berjumlah {dataLansia} orang.</p>
+            <p>Anggota jemaat diatas 17 tahun berjumlah {dataPemuda} orang.</p>
+            <p>Anggota jemaat dibawah 17 tahun berjumlah {dataRemaja} orang.</p>
             <p>
               Anggota yang sudah berstatus sidi jemaat berjumlah {dataSidi}{" "}
               orang.
