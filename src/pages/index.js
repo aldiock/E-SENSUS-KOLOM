@@ -10,6 +10,7 @@ import UpdateUser from "./UpdateUser";
 import AddDataJemaat from "./AddDataJemaat";
 import AddDataKKJemaat from "./AddDataKKJemaat";
 import EditAnggotaKK from "./EditAnggotaKK";
+import ViewAnggotaKK from "./ViewAnggotaKK";
 
 export {
   Login,
@@ -24,4 +25,5 @@ export {
   AddDataJemaat,
   AddDataKKJemaat,
   EditAnggotaKK,
+  ViewAnggotaKK,
 };

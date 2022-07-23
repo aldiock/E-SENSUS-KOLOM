@@ -96,7 +96,7 @@ const DataKKJemaat = () => {
                       <Link
                         title="Lihat Data Anggota Keluarga"
                         onClick={() =>
-                          history.push("/add-anggota-kk-jemaat", { item })
+                          history.push("/view-anggota-kk-jemaat", { item })
                         }
                       />
                     </div>

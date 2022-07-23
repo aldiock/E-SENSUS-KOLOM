@@ -13,6 +13,7 @@ import {
   AddDataJemaat,
   AddDataKKJemaat,
   EditAnggotaKK,
+  ViewAnggotaKK,
 } from "../../pages";
 
 const Routes = () => {
@@ -48,6 +49,9 @@ const Routes = () => {
         </Route>
         <Route path="/add-anggota-kk-jemaat">
           <EditAnggotaKK />
+        </Route>
+        <Route path="/view-anggota-kk-jemaat">
+          <ViewAnggotaKK />
         </Route>
         <Route path="/">
           <Login />
