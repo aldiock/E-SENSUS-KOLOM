@@ -39,7 +39,13 @@ const DataJemaat = () => {
           setDataJemaat(userJemaat);
         }
       });
+
+
   }, []);
+
+
+
+
 
   return (
     <>
@@ -79,6 +85,7 @@ const DataJemaat = () => {
           <tbody>
             {dataJemaat.map((item) => (
               <tr key={item.id}>
+      
                 <td>{item.namaJemaat}</td>
                 <td>{item.jenisKelamin}</td>
                 <td>{item.tempatLahir}</td>
