@@ -39,13 +39,7 @@ const DataJemaat = () => {
           setDataJemaat(userJemaat);
         }
       });
-
-
   }, []);
-
-
-
-
 
   return (
     <>
@@ -68,6 +62,7 @@ const DataJemaat = () => {
         <table class="table table-striped table-condensed table-hover">
           <thead>
             <tr>
+              <th>No</th>
               <th>Nama Jemaat</th>
               <th>Jenis Kelamin</th>
               <th>Tempat Lahir</th>
@@ -83,9 +78,9 @@ const DataJemaat = () => {
             </tr>
           </thead>
           <tbody>
-            {dataJemaat.map((item) => (
-              <tr key={item.id}>
-      
+            {dataJemaat.map((item, index) => (
+              <tr key={index}>
+                <td>{index+1}</td>
                 <td>{item.namaJemaat}</td>
                 <td>{item.jenisKelamin}</td>
                 <td>{item.tempatLahir}</td>

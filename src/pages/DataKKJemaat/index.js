@@ -6,7 +6,7 @@ import {
   NavBarPelsus,
   Link,
 } from "../../components";
-import { Delete } from "../../assets";
+import { Delete, EditIco, ViewIco } from "../../assets";
 import { useHistory } from "react-router";
 import backEndDataContext from "../../contexts/backEndDataContext";
 import firebase from "../../config/firebase";
@@ -64,6 +64,7 @@ const DataKKJemaat = () => {
         <table class="table table-striped table-condensed table-hover">
           <thead>
             <tr>
+              <th>No.</th>
               <th>ID KK from Database</th>
               <th>No. Kepala Keluarga</th>
               <th>Nama Kepala Keluarga</th>
@@ -73,15 +74,16 @@ const DataKKJemaat = () => {
             </tr>
           </thead>
           <tbody>
-            {dataKKJemaat.map((item) => (
+            {dataKKJemaat.map((item, index) => (
               <tr key={item.idKK.id}>
+                <td>{index + 1}</td>
                 <td>{item.idKK.id}</td>
                 <td>{item.noKK}</td>
                 <td>{item.idKK.value}</td>
                 <td>
                   <div className="button-action">
                     <div className="delete-logo">
-                      <img src={Delete} alt="delete" className="logo-delete" />
+                      <img src={EditIco} alt="delete" className="logo-delete" />
                       <Link
                         title="Edit Anggota Keluarga"
                         onClick={() =>
@@ -92,7 +94,7 @@ const DataKKJemaat = () => {
                   </div>
                   <div className="button-action">
                     <div className="delete-logo">
-                      <img src={Delete} alt="delete" className="logo-delete" />
+                      <img src={ViewIco} alt="delete" className="logo-delete" />
                       <Link
                         title="Lihat Data Anggota Keluarga"
                         onClick={() =>

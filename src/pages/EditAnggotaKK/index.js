@@ -199,6 +199,7 @@ const EditAnggotaKK = ({ props }) => {
         <table class="table table-striped table-condensed table-hover">
           <thead>
             <tr>
+              <th>No.</th>
               <th>Nama Jemaat</th>
               <th>Jenis Kelamin</th>
               <th>Tempat Lahir</th>
@@ -214,8 +215,9 @@ const EditAnggotaKK = ({ props }) => {
             </tr>
           </thead>
           <tbody>
-            {copyUserData?.map((item) => (
+            {copyUserData?.map((item,index) => (
               <tr key={item.id}>
+                <td>{index + 1}</td>
                 <td>{item?.newOptions[0].namaJemaat}</td>
                 <td>{item.newOptions[0].jenisKelamin}</td>
                 <td>{item.newOptions[0].tempatLahir}</td>

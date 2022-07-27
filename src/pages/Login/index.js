@@ -52,7 +52,7 @@ const Login = () => {
           <div className="title-wrap">
             <Gap height={30} />
             <p className="text-login-header">E-SENSUS KOLOM 2</p>
-            <p className="text-login-inner">GMIM "GENESARET" </p>
+            <p className="text-login-inner">GMIM "GENESARET" PATETEN</p>
           </div>
           <div className="form-login">
             <InputText

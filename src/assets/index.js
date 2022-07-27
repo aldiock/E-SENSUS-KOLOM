@@ -7,7 +7,8 @@ import Logout from "./logoutlogo.png";
 import AddUserIco from "./addUserIco.png";
 import Delete from "./delete.png";
 import Edit from "./edit.png";
-
+import EditIco from "./edit_ico.png";
+import ViewIco from "./view_ico.png";
 export {
   LogoGMIM,
   LogoGMIMHD,
@@ -18,4 +19,6 @@ export {
   AddUserIco,
   Delete,
   Edit,
+  EditIco,
+  ViewIco,
 };
