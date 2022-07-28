@@ -24,7 +24,7 @@ const CardSelectorDataJemaat = () => {
         </div>
         <Gap width={152} />
         <div className="refresh-data-jemaat">
-          <Button title="Refresh Data" />
+          <Button title="Refresh Data"  />
         </div>
         <Gap width={32} />
       </div>

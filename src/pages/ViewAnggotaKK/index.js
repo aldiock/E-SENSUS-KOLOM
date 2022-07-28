@@ -10,6 +10,8 @@ import {
 } from "../../components";
 import firebase from "../../config/firebase";
 import backEndDataContext from "../../contexts/backEndDataContext";
+import ReactHtmlTableToExcel from "react-html-table-to-excel";
+import "./lihatanggotakk.scss";
 
 const ViewAnggotaKK = () => {
   const backEndData = useContext(backEndDataContext);
@@ -146,12 +148,27 @@ const ViewAnggotaKK = () => {
             </tr>
           </tbody>
         </table>
+        <div className="csv-print">
+          <ReactHtmlTableToExcel
+            className="csv-style"
+            table="table-anggota-kk"
+            filename="Anggota KK File"
+            sheet="Sheet"
+            buttonText="CSV Export"
+          />
+        </div>
         <Gap height={10} />
         <hr />
-        <table class="table table-striped table-condensed table-hover">
+
+        <table
+          class="table table-striped table-condensed table-hover"
+          id="table-anggota-kk"
+        >
           <thead>
             <tr>
-              <th>Nama Jemaat</th>
+              <th>No.</th>
+              <th>Nama Kepala Keluarga</th>
+              <th>Nama Anggota Jemaat</th>
               <th>Jenis Kelamin</th>
               <th>Tempat Lahir</th>
               <th>Tanggal Lahir</th>
@@ -160,14 +177,13 @@ const ViewAnggotaKK = () => {
               <th>Status Kawin</th>
               <th>Status Baptis</th>
               <th>Status Sidi</th>
-              <div className="action-style">
-                <th>Action</th>
-              </div>
             </tr>
           </thead>
           <tbody>
-            {copyUserData?.map((item) => (
+            {copyUserData?.map((item, index) => (
               <tr key={item.id}>
+                <td>{index + 1}</td>
+                <td>{namaKepalaKeluarga}</td>
                 <td>{item?.newOptions[0].namaJemaat}</td>
                 <td>{item.newOptions[0].jenisKelamin}</td>
                 <td>{item.newOptions[0].tempatLahir}</td>
@@ -177,14 +193,6 @@ const ViewAnggotaKK = () => {
                 <td>{item.newOptions[0].statusKawin}</td>
                 <td>{item.newOptions[0].statusBaptis}</td>
                 <td>{item.newOptions[0].statusSidi}</td>
-                <td>
-                  <div className="button-action">
-                    <div className="delete-logo">
-                      <img src={Delete} alt="delete" className="logo-delete" />
-                      <Link title="Hapus User" />
-                    </div>
-                  </div>
-                </td>
               </tr>
             ))}
           </tbody>

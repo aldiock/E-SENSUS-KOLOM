@@ -215,7 +215,7 @@ const EditAnggotaKK = ({ props }) => {
             </tr>
           </thead>
           <tbody>
-            {copyUserData?.map((item,index) => (
+            {copyUserData?.map((item, index) => (
               <tr key={item.id}>
                 <td>{index + 1}</td>
                 <td>{item?.newOptions[0].namaJemaat}</td>
@@ -231,7 +231,41 @@ const EditAnggotaKK = ({ props }) => {
                   <div className="button-action">
                     <div className="delete-logo">
                       <img src={Delete} alt="delete" className="logo-delete" />
-                      <Link title="Hapus User" />
+                      <Link
+                        title="Hapus Data"
+                        onClick={() => {
+                          const idSet = item.id;
+
+                          firebase
+                            .database()
+                            .ref(`kkJemaat/${nomorKK}/anggotaKK`)
+                            .child(idSet)
+                            .remove();
+
+                          firebase.database().ref(`jemaat/${idSet}`).remove();
+
+                          const newOptions = [];
+                          loadDataKK.map((item) => {
+                            if (item.id !== idSet) {
+                              newOptions.push({
+                                id: item.id,
+                                jenisKelamin: item.jenisKelamin,
+                                namaJemaat: item.namaJemaat,
+                                pekerjaan: item.pekerjaan,
+                                pendidikan: item.pendidikan,
+                                tempatLahir: item.tempatLahir,
+                                tanggalLahir: item.tanggalLahir,
+                                statusBaptis: item.statusBaptis,
+                                statusSidi: item.statusSidi,
+                                statusKawin: item.statusKawin,
+                              });
+                            }
+                          });
+                          setLoadDataKK(newOptions);
+                          loadDataKK();
+                          convertDataKKToOptions();
+                        }}
+                      />
                     </div>
                   </div>
                 </td>

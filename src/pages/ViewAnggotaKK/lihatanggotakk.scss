@@ -1,0 +1,34 @@
+.csv-print {
+  float: right;
+
+  .csv-style {
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    height: 40px;
+    line-height: 36px;
+    margin-left: 12px;
+    text-align: center;
+    width: 120px;
+
+    &:hover {
+      background-color: #2083aa;
+      color: #fff;
+    }
+
+    &:active {
+      background-color: #2083aa;
+      color: #fff;
+    }
+
+    &:focus {
+      background-color: #2083aa;
+      color: #fff;
+    }
+
+    &:disabled {
+      background-color: #2083aa;
+      color: #fff;
+    }
+  }
+}

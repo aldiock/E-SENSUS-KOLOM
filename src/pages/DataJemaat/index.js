@@ -9,6 +9,8 @@ import {
 import { Delete } from "../../assets";
 import backEndDataContext from "../../contexts/backEndDataContext";
 import firebase from "../../config/firebase";
+import ReactHtmlTableToExcel from "react-html-table-to-excel";
+import "./datajemaat.scss";
 
 const DataJemaat = () => {
   const backEndData = useContext(backEndDataContext);
@@ -59,7 +61,21 @@ const DataJemaat = () => {
         <div>
           <CardSelectorDataJemaat />
         </div>
-        <table class="table table-striped table-condensed table-hover">
+        <Gap height={10} />
+
+        <div className="csv-print">
+          <ReactHtmlTableToExcel
+            className="csv-style"
+            table="data-jemaat-table"
+            filename="Data Jemaat Kolom 2"
+            sheet="Sheet"
+            buttonText="CSV Export"
+          />
+        </div>
+        <table
+          class="table table-striped table-condensed table-hover"
+          id="data-jemaat-table"
+        >
           <thead>
             <tr>
               <th>No</th>
@@ -72,15 +88,12 @@ const DataJemaat = () => {
               <th>Status Kawin</th>
               <th>Status Baptis</th>
               <th>Status Sidi</th>
-              <div className="action-style">
-                <th>Action</th>
-              </div>
             </tr>
           </thead>
           <tbody>
             {dataJemaat.map((item, index) => (
               <tr key={index}>
-                <td>{index+1}</td>
+                <td>{index + 1}</td>
                 <td>{item.namaJemaat}</td>
                 <td>{item.jenisKelamin}</td>
                 <td>{item.tempatLahir}</td>
@@ -90,14 +103,6 @@ const DataJemaat = () => {
                 <td>{item.statusKawin}</td>
                 <td>{item.statusBaptis}</td>
                 <td>{item.statusSidi}</td>
-                <td>
-                  <div className="button-action">
-                    <div className="delete-logo">
-                      <img src={Delete} alt="delete" className="logo-delete" />
-                      <Link title="Hapus User" />
-                    </div>
-                  </div>
-                </td>
               </tr>
             ))}
           </tbody>
