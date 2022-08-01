@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Select from "react-select";
+import { Delete } from "../../assets";
 import {
-  NavBar,
-  NavBarPelsus,
+  Button,
   CardSelectorDataKK,
   Gap,
-  Button,
   Link,
+  NavBar,
+  NavBarPelsus,
 } from "../../components";
-import backEndDataContext from "../../contexts/backEndDataContext";
-import { Delete } from "../../assets";
 import firebase from "../../config/firebase";
-import { useLocation } from "react-router-dom";
+import backEndDataContext from "../../contexts/backEndDataContext";
 import "./editanggotakk.scss";
 
 const EditAnggotaKK = ({ props }) => {
@@ -20,9 +20,7 @@ const EditAnggotaKK = ({ props }) => {
   const [loadDataKK, setLoadDataKK] = useState([{}]);
   const [newLoadData, setNewLoadData] = useState([{}]);
   const [validLoad, setValidLoad] = useState(true);
-  const [validSelected, setValidSelected] = useState(true);
   const [idKK, setIDKK] = useState(null);
-  const [noKK, setNoKK] = useState("");
   const { state } = useLocation();
   const nomorKK = state.item.idKK.id;
   const namaKepalaKeluarga = state.item.idKK.value;
@@ -111,8 +109,6 @@ const EditAnggotaKK = ({ props }) => {
         });
       }
     });
-    console.log(loadDataKK);
-    console.log("INI DATA NEW COPY FROM NEW OPTIONS", newOptions);
 
     firebase
       .database()
@@ -130,7 +126,6 @@ const EditAnggotaKK = ({ props }) => {
       setNavBarValid(true);
     }
     loadData();
-    console.log(copyUserData);
   }, []);
 
   useEffect(() => {
@@ -235,35 +230,26 @@ const EditAnggotaKK = ({ props }) => {
                         title="Hapus Data"
                         onClick={() => {
                           const idSet = item.id;
+                          //create alert before delete data from database and then delete data from database after alert is confirmed by user (yes or no)
+                          const alertDelete = window.confirm(
+                            "Apakah anda yakin ingin menghapus data ini?"
+                          );
+                          if (alertDelete) {
+                            firebase
+                              .database()
+                              .ref(`kkJemaat/${nomorKK}/anggotaKK/${idSet}`)
+                              .remove();
 
-                          firebase
-                            .database()
-                            .ref(`kkJemaat/${nomorKK}/anggotaKK`)
-                            .child(idSet)
-                            .remove();
+                            firebase.database().ref(`jemaat/${idSet}`).remove();
+                          } else {
+                            return;
+                          }
 
-                          firebase.database().ref(`jemaat/${idSet}`).remove();
-
-                          const newOptions = [];
-                          loadDataKK.map((item) => {
-                            if (item.id !== idSet) {
-                              newOptions.push({
-                                id: item.id,
-                                jenisKelamin: item.jenisKelamin,
-                                namaJemaat: item.namaJemaat,
-                                pekerjaan: item.pekerjaan,
-                                pendidikan: item.pendidikan,
-                                tempatLahir: item.tempatLahir,
-                                tanggalLahir: item.tanggalLahir,
-                                statusBaptis: item.statusBaptis,
-                                statusSidi: item.statusSidi,
-                                statusKawin: item.statusKawin,
-                              });
-                            }
-                          });
-                          setLoadDataKK(newOptions);
-                          loadDataKK();
-                          convertDataKKToOptions();
+                          //delete data from array
+                          const newData = copyUserData.filter(
+                            (item) => item.id !== idSet
+                          );
+                          setCopyUserData(newData);
                         }}
                       />
                     </div>

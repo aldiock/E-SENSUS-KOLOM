@@ -46,36 +46,32 @@ const AddDataJemaat = () => {
       pekerjaan === "" ||
       startDate === null
     ) {
-      alert("Please fill all field");
+      alert("Mohon isi semua input, jangan ada yang kosong");
     } else {
+      const toStringDate = startDate.toDateString();
+      const data = {
+        namaJemaat: namaJemaat,
+        jenisKelamin: jenisKelamin,
+        tempatLahir: tempatLahir,
+        pendidikan: pendidikan,
+        statusKawin: statusKawin,
+        statusBaptis: statusBaptis,
+        statusSidi: statusSidi,
+        pekerjaan: pekerjaan,
+        tanggalLahir: toStringDate,
+      };
+      firebase.database().ref("jemaat/").push(data);
+      setNamaJemaat("");
+      setJenisKelamin([]);
+      setTempatLahir("");
+      setPendidikan([]);
+      setStatusKawin([]);
+      setStatusBaptis([]);
+      setStatusSidi([]);
+      setStatusPekerjaan("");
+      setStartDate(null);
       alert("Success");
     }
-
-    const toStringDate = startDate.toDateString();
-
-    const data = {
-      namaJemaat: namaJemaat,
-      jenisKelamin: jenisKelamin,
-      tempatLahir: tempatLahir,
-      pendidikan: pendidikan,
-      statusKawin: statusKawin,
-      statusBaptis: statusBaptis,
-      statusSidi: statusSidi,
-      pekerjaan: pekerjaan,
-      tanggalLahir: toStringDate,
-    };
-    console.log(data);
-
-    firebase.database().ref("jemaat/").push(data);
-    setNamaJemaat("");
-    setJenisKelamin([]);
-    setTempatLahir("");
-    setPendidikan([]);
-    setStatusKawin([]);
-    setStatusBaptis([]);
-    setStatusSidi([]);
-    setStatusPekerjaan("");
-    setStartDate(null);
   };
 
   return (
