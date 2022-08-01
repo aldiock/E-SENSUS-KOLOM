@@ -26,7 +26,6 @@ const AddDataJemaat = () => {
   const [statusSidi, setStatusSidi] = useState([]);
   const [pekerjaan, setStatusPekerjaan] = useState("");
 
-
   useEffect(() => {
     if (backEndData.getUserDetails().status === "Admin") {
       setNavbarValid(false);
@@ -36,6 +35,21 @@ const AddDataJemaat = () => {
   }, []);
 
   const handleSubmit = () => {
+    if (
+      namaJemaat === "" ||
+      jenisKelamin === "" ||
+      tempatLahir === "" ||
+      pendidikan === "" ||
+      statusKawin === "" ||
+      statusBaptis === "" ||
+      statusSidi === "" ||
+      pekerjaan === "" ||
+      startDate === null
+    ) {
+      alert("Please fill all field");
+    } else {
+      alert("Success");
+    }
 
     const toStringDate = startDate.toDateString();
 
